@@ -181,7 +181,6 @@ def draw_main_app():
             st.session_state.chapter_select_clicked = False
 
     if 'selected_chapters' in st.session_state and len(st.session_state.selected_chapters) > 0:
-        print("Session key: ", st.session_state.api_key)
         if st.button("Erstellen", disabled=not st.session_state.api_key_valid):
             st.session_state.button_clicked = True
             chapter_selection_container.empty()
