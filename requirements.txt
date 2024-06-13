@@ -17,3 +17,4 @@ pydub
 streamlit
 python-slugify
 ffmpeg-python
+streamlit-extras[buy_me_a_coffee]

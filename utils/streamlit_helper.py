@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+from streamlit_extras.buy_me_a_coffee import button as coffee_button
 
 from utils.ebook_helper import load_epub, extract_toc, extract_chapter_content, display_toc
 
@@ -112,6 +113,15 @@ def draw_sidebar():
         #    st.sidebar.audio(f"sample_{voice.lower()}.mp3")
     else:
         st.session_state.voice = None
+
+    st.sidebar.divider()
+    st.sidebar.text("Created by:")
+    st.sidebar.write("Danny Gerst")
+    st.sidebar.write("[LinkedIn](https://www.linkedin.com/in/dannygerst/)")
+    st.sidebar.write("[Twitter](https://twitter.com/gerstdanny/)")
+    st.sidebar.write("[Website](https://www.dannygerst.de/)")
+    with st.sidebar:
+        coffee_button(username="dannygerst", floating=False)
 
     if 'main' in st.session_state and st.session_state.main:
         col1, col2 = st.columns([1, 1])
