@@ -65,12 +65,13 @@ def is_api_key_valid(api_key):
 
 def draw_sidebar():
     api_key = st.sidebar.text_input('Your OpenAI API Key:', type='password', key='api_key')
-    if api_key:
-        if is_api_key_valid(api_key):
-            os.environ['OPENAI_API_KEY'] = api_key
-            st.sidebar.success('API key successfully set.')
+    if api_key and is_api_key_valid(api_key):
+        os.environ['OPENAI_API_KEY'] = api_key
+        st.sidebar.success('API key successfully set.')
+        st.session_state.api_key_valid = True
     else:
         st.sidebar.error('Invalid OpenAI API key. Please provide a valid key.')
+        st.session_state.api_key_valid = False
 
     st.sidebar.title("Optionen")
     st.sidebar.selectbox(
