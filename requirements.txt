@@ -16,3 +16,4 @@ diskcache
 pydub
 streamlit
 python-slugify
+ffmpeg-python
