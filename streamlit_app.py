@@ -84,8 +84,10 @@ def draw_main_app():
                 progress = (i + 1) / total_chapters
                 progress_bar.progress(progress)
                 log.write(f"Verarbeite Kapitel ({i + 1}/{total_chapters}): " + chapter_title)
-                chapter_content = extract_chapter_content(book, chapter_href)
+                chapter_content = extract_chapter_content(book, chapter_href, toc)
 
+                if len(chapter_content) < 100:
+                    continue
                 summary_data = summarize(chapter_content, model_name=st.session_state.model_name,
                                          summary_length=st.session_state.summary_length_value)
                 summaries = summary_data['summaries']

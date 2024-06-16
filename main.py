@@ -17,7 +17,7 @@ def main():
     # model_name = 'gpt-4o'
     model_name = 'gpt-3.5-turbo'
     summary_length = 250
-    file_path = 'Blitzscaling.epub'
+    file_path = "C:/Users/Wizard/Desktop/Abundance.epub"
     book = load_epub(file_path)
     toc = extract_toc(book)
 
@@ -25,11 +25,11 @@ def main():
     display_toc(toc)
 
     if toc:
-        chapter_title, chapter_href = toc[6]
+        chapter_title, chapter_href = toc[2]
         print(f"\nInhalt von '{chapter_title}':")
-        chapter_content = extract_chapter_content(book, chapter_href)
-        print(chapter_content[:1000])  # Nur die ersten 1000 Zeichen anzeigen
-
+        chapter_content = extract_chapter_content(book, chapter_href, toc)
+        print(chapter_content)  # Nur die ersten 1000 Zeichen anzeigen
+        exit()
         summary_data = summarize(chapter_content, model_name=model_name, summary_length=summary_length)
         summaries = summary_data['summaries']
         input_tokens = summary_data['input_tokens']
