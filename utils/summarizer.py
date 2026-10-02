@@ -46,7 +46,7 @@ def _summarize_stage_1(chunks_text, model_name=None):
 
     # Prompt to get title and summary for each chunk
     map_prompt_template = """Firstly, give the following text an informative title. Then, on a new line, write a 75-100 
-    word summary of the following text:
+    word summary of the following text. DO NOT refer to the text as "the text":
     
   {text}
 
@@ -103,13 +103,14 @@ def _summarize_stage_2(stage_1_outputs, topics, model_name, summary_num_words=25
   TITLES:
   """
 
-    map_prompt_template = """Write a 75-100 word summary of the following text. Do not start your answer with the text:
+    map_prompt_template = """Write a 75-100 word summary of the following text. DO NOT refer to the text as "the text".
+    Do not start your answer with the text:
     {text}
 
     CONCISE SUMMARY:"""
 
     combine_prompt_template = 'Write a ' + str(summary_num_words) + """-word summary of the following, removing 
-    irrelevant information. Do not start your answer with the text. 
+    irrelevant information. DO NOT refer to the text as "the text". 
   {text}
   """ + str(summary_num_words) + """-WORD SUMMARY:"""
 
@@ -226,7 +227,7 @@ def summarize(text, model_name, summary_length=250):
     # Draw vertical black lines for every 1 of the x-axis
     for i in range(1, len(chunk_topics)):
         plt.axvline(x=i - 0.5, color='black', linewidth=0.5)
-    # plt.show()
+    plt.show()
 
     print(topics)
 

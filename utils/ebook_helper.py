@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 def load_epub(file_path):
     print(f"Lade EPUB-Datei: {file_path}")
-    book = epub.read_epub(file_path)
+    book = epub.read_epub(file_path, options={'ignore_ncx': True})
     print("EPUB-Datei erfolgreich geladen.")
     return book
 

@@ -1,7 +1,95 @@
-/audiofiles/
-/.env
-/uploads/
-/Blitzscaling.epub
-/.cache/
-/.venv/
-/.idea/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+!frontend/lib/
+!frontend/lib/**
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+.venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Datenbank
+*.db
+*.sqlite
+*.sqlite3
+audiobook_tracker.db
+huey_queue.db
+.db_initialized
+
+# Audio Files
+audiofiles/*.mp3
+audiofiles/**/*.mp3
+audiofiles/productions/
+!audiofiles/.gitkeep
+
+# Uploads
+uploads/*.epub
+uploads/**/*.epub
+*.epub
+!uploads/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Cache
+.cache/
+diskcache/
+uploads/.editions/
+evaluation/.cache/
+evaluation/book-sample/
+evaluation/*.json
+evaluation/*.txt
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit (alte Version)
+.streamlit/
+
+# Frontend (Next.js)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env
+frontend/*.tsbuildinfo
